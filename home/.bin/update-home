@@ -8,4 +8,4 @@ echo
 echo -e "${GREEN}Updating $HOME for ${BLUE}$(hostname)${GREEN}...${NC}"
 echo
 
-RUNNING_GUIX_HOME=1 guix home -L ~/git/hub/ispringle/nerd reconfigure ~/git/hub/ispringle/nerd/config/systems/$(hostname).scm
+RUNNING_GUIX_HOME=1 guix home -L ~/git/hub/ispringle/nerd reconfigure ~/git/hub/ispringle/nerd/config/home/base.scm

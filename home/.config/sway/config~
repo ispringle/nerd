@@ -1,2 +1,0 @@
-bindsym Mod4+d exec rofi -show drun
-bindsym Mod4+e exec emacs

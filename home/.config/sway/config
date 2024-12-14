@@ -1,3 +1,0 @@
-bindsym Mod4+d exec fuzzel
-bindsym Mod4+e exec emacs
-bindsym Mod4+e exec foot
