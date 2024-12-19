@@ -1,0 +1,27 @@
+[general]
+accounts = proton
+
+[Account proton]
+localrepository = proton-local
+remoterepository = proton-remote
+autorefresh = 0.2
+quick = 10
+postsynchook = mu index
+
+[Repository proton-local]
+type = Maildir
+localfolders = ~/mail/
+sync_deletes = yes
+
+[Repository proton-remote]
+type = IMAP
+remoteport = 1143
+remotehost = 127.0.0.1
+remoteuser = ipringle
+remotepassfile = ~/.config/secrets/hydroxidePass
+keepalive = 60
+holdconnectionopen = yes
+expunge = yes
+ssl = no
+starttls = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
