@@ -1,0 +1,24 @@
+IMAPAccount proton
+Host 127.0.0.1
+User ipringle
+PassCmd "cat ~/.config/secrets/hydroxidePass"
+TLSType NONE
+Port 1143
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore proton-remote
+Account proton
+
+MaildirStore proton-local
+Subfolders Verbatim
+Path ~/mail/proton/
+Inbox ~/mail/proton/inbox
+
+Channel proton
+Far :proton-remote:
+Near :proton-local:
+Create Both
+Expunge Both
+Remove Near
+Patterns "INBOX"
+SyncState *
