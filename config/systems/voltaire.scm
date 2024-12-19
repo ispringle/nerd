@@ -62,7 +62,8 @@
    ;; Use non-free Linux kernel and microcode
    (kernel linux)
    (initrd microcode-initrd)
-   (firmware (list linux-firmware))
+   (firmware (list linux-firmware
+                   sof-firmware))
 
    ;; Bootloader
    (bootloader (bootloader-configuration
