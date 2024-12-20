@@ -7,7 +7,7 @@
   #:use-module (guix channels)
   #:use-module (nongnu packages linux)
   #:use-module (nongnu system linux-initrd)
-  ;; #:use-module (config services userherd)
+  #:use-module (config services userherd)
   #:export (voltaire-system))
 
 (use-service-modules guix admin sysctl pm nix avahi dbus cups desktop linux
@@ -149,7 +149,7 @@
       (service gnome-keyring-service-type)
 
       ;; User-level Shepherd Service
-      ;; (service userherd-service-type)
+      (service userherd-service-type)
       
       ;; Printing
       (service cups-service-type
