@@ -21,6 +21,8 @@
               nerd-sway-config)
      (service home-bash-service-type
               (home-bash-configuration
+               (guix-defaults? #t)
+               ;; (bash-profile '(". $GUIX_PROFILE/etc/profile"))
                (aliases
                 '(("ll" . "ls -l")
                   ("la" . "ls -la")

@@ -12,8 +12,15 @@
     ;; ("XDG_CACHE_HOME" . "$HOME/.cache")
     ;; ("XDG_CONFIG_HOME" . "$HOME/.config")
     ;; ("XDG_DATA_HOME" . "$HOME/.local/share")
+
+    ;; Guix
+    ("GUIX_PROFILE" . "$HOME/.guix-profile")
+    
+    ;; Bin locs
     ("XDG_DATA_DIRS" . "$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:/usr/local/share:/usr/share")
     ("PATH" . "$HOME/.bin:$HOME/.local/bin:$PATH")
+
+    ;; Wayland / Sway
     ("XDG_CURRENT_DESKTIOP" . "sway")
     ("XDG_SESSION_TYPE" . "wayland")
     ("XDG_SESSION_DESKTOP" . "sway")

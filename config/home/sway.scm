@@ -99,8 +99,14 @@
         "waybar"
         "foot -s"
         "mako"
-        "dbus-update-activation-environment --all"))
-(define nerd-extra-content (list))
+        "dbus-update-activation-environment --all"
+        "~/.bin/proton-bridge -c"))
+(define nerd-extra-content
+  `("corner_radius 2"
+    "smart_borders on"
+    "default_border pixel 1"
+    "gaps inner 5"
+    "blur enable"))
 
 (define nerd-sway-config
   (sway-configuration

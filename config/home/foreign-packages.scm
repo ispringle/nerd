@@ -2,13 +2,13 @@
   #:use-module (gnu)
   #:use-module (gnu packages)
   #:use-module (gnu packages chromium)
-  #:use-module (config packages proton-bridge)
+  ;; #:use-module (config packages proton-bridge)
   #:export (nerd-pkgs))
 (use-package-modules compression curl fonts freedesktop gimp glib gnome gnome-xyz
                      gstreamer kde-frameworks linux music package-management
                      password-utils pdf pulseaudio shellutils ssh syncthing terminals
                      video web-browsers wget wm xdisorg xorg emacs emacs-xyz librewolf
-                     chromium image qt mail rust-apps password-utils gnupg w3m)
+                     chromium image qt mail rust-apps gnupg w3m)
 (define nerd-pkgs
     (list
      ;; WM related stuff
@@ -35,10 +35,11 @@
      emacs-next-pgtk
 
      ;; email
-     proton-bridge
-     hydroxide                    ; third party, cli-only protonbridge basically
+     ;; proton-bridge
+     ;; hydroxide                    ; third party, cli-only protonbridge basically
      mu
-     isync
+     offlineimap3
+     ;; isync
      
      ;; Device Management
      udiskie

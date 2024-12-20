@@ -24,13 +24,13 @@
     stow
     git
     bluez
-    htop                    ; system monitoring
-    curl                    ; URL retrieval
-    wget                    ; another URL retrieval tool
-    mg                      ; lightweight emacs-style editor
-    tree                    ; directory listing
-    ripgrep                 ; fast grep alternative
-    fd                      ; fast find alternative
+    htop                                ; system monitoring
+    curl                                ; URL retrieval
+    wget                                ; another URL retrieval tool
+    mg                                  ; lightweight emacs-style editor
+    tree                                ; directory listing
+    ripgrep                             ; fast grep alternative
+    fd                                  ; fast find alternative
     
     ;; Compression tools
     zip
@@ -38,17 +38,17 @@
     p7zip
     
     ;; Network tools
-    openssh                ; SSH client/server
+    openssh            ; SSH client/server
     ;; nss-certs              ; SSL certificates
     ;; bind                   ; DNS utilities (dig, nslookup)
     
     ;; System monitoring and debugging
-    lsof                    ; list open files
-    pciutils               ; lspci
-    usbutils               ; lsusb
+    lsof                                ; list open files
+    pciutils                            ; lspci
+    usbutils                            ; lsusb
     
     ;; Shell utilities
-    fish                   ; friendly shell
+    fish                                ; friendly shell
     )
    %base-packages))
 
@@ -155,7 +155,7 @@
       (simple-service 'system-cron-jobs
                       mcron-service-type
                       (list
-                       #~(job "5 0 * * *"    ; Run at 00:05 every day
+                       #~(job "5 0 * * *" ; Run at 00:05 every day
                               "guix gc -d 2m -F 10G")))
       
       ;; NonGuix substitutes
