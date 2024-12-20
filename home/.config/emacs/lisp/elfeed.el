@@ -41,12 +41,35 @@
   :bind
   ("C-x w" . elfeed)
   :custom
-  (elfeed-feeds
-   '(("https://profcj.org/feed/podcast/" dangerous-history longform history chrono)
-     ("https://tomwoodsshow.libsyn.com/rss" periodical politics)
-     ("https://www.dhunplugged.com/feed/" periodical finance)
-     ("https://feeds.megaphone.fm/GLT1412515089" periodical talk)
-     ("http://feed.nashownotes.com/rss.xml" periodical politics)))
+  (elfeed-feeds '(;; Podcasts
+                  ("https://profcj.org/feed/podcast/" dangerous-history longform history chrono)
+                  ("https://tomwoodsshow.libsyn.com/rss" periodical politics)
+                  ("https://www.dhunplugged.com/feed/" periodical finance)
+                  ("https://feeds.megaphone.fm/GLT1412515089" periodical talk)
+                  ("http://feed.nashownotes.com/rss.xml" periodical politics)
+
+                  ;; Youtube
+                  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCtTFL9-jcv3AhgKv-GkUrEg" youtube)
+                  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCS87-wYrvmexsLkBj0jhrnQ"
+                   youtube)
+                  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCDsElQQt_gCZ9LgnW-7v-cQ"
+                   youtube)
+                  ("https://www.youtube.com/feeds/videos.xml?channel_id=UC5HolAcNQGGVQ6gY8QWuoKg"
+                   youtube)
+                  ("https://www.youtube.com/feeds/videos.xml?channel_id=UC8nZUXCwCTffxthKLtOp6ng"
+                   youtube)
+                  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCO4AaIooUgGTlBH64KWO76w"
+                   youtube)
+                  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCB51g7B1WMH9Va4M9DM3tHQ"
+                   youtube)
+                  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCp68_FLety0O-n9QU6phsgw"
+                   youtube)
+                  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCQeRaTukNYft1_6AZPACnog"
+                   youtube)
+                  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCj1VqrHhDte54oLgPG4xpuQ"
+                   youtube)
+                  ("https://www.youtube.com/feeds/videos.xml?channel_id=UCBB0oz7Yo_35gnbPYGKGJTA"
+                   youtube)))
   :config
   (defun isp/elfeed-podcast-tagger (entry)
     (when (elfeed-entry-enclosures entry)
@@ -77,3 +100,24 @@
   (setq elfeed-show-enclosure-filename-function #'isp/elfeed-show-enclosure-filename-remote)
   (setq-default elfeed-search-filter "@1-week-ago -longform +unread ")
   (add-hook 'elfeed-new-entry-hook #'isp/elfeed-postcast-tagger))
+
+(use-package elfeed-tube
+  :ensure t
+  :after elfeed
+  :demand t
+  :config
+  (elfeed-tube-setup)
+  :bind
+  (:map elfeed-show-mode-map
+        ("F" . elfeed-tube-fetch)
+        ([remap save-buffer] . elfeed-tube-save)
+        ("w" . elfeed-tube-mpv)
+        :map elfeed-search-mode-map
+        ("F" . elfeed-tube-fetch)
+        ([remap save-buffer] . elfeed-tube-save)))
+
+(use-package elfeed-tube-mpv
+  :ensure t
+  :bind (:map elfeed-show-mode-map
+              ("C-c C-f" . elfeed-tube-mpv-follow-mode)
+              ("C-c C-w" . elfeed-tube-mpv-where)))
