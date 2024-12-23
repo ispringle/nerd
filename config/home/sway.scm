@@ -100,7 +100,8 @@
         "foot -s"
         "mako"
         "dbus-update-activation-environment --all"
-        "~/.bin/proton-bridge -c"))
+        "~/.bin/proton-bridge -n"
+        "offlineimap"))
 (define nerd-extra-content
   `("corner_radius 2"
     "smart_borders on"

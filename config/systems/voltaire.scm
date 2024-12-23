@@ -1,4 +1,6 @@
 (define-module (config systems voltaire)
+  ;; #:use-module (config services userherd)
+  #:use-module (config systems packages)
   #:use-module (gnu)
   #:use-module (gnu services)
   #:use-module (gnu system)
@@ -7,7 +9,6 @@
   #:use-module (guix channels)
   #:use-module (nongnu packages linux)
   #:use-module (nongnu system linux-initrd)
-  #:use-module (config services userherd)
   #:export (voltaire-system))
 
 (use-service-modules guix admin sysctl pm nix avahi dbus cups desktop linux
@@ -16,42 +17,7 @@
 (use-package-modules admin audio video nfs certs shells ssh linux bash emacs gnome
                      networking wm fonts libusb cups freedesktop file-systems
                      version-control package-management compression base curl shellutils
-		     wget text-editors rust-apps lsof pciutils)
-
-(define %my-base-packages
-  (append
-   (list
-    ;; System utilities
-    stow
-    git
-    bluez
-    htop                                ; system monitoring
-    curl                                ; URL retrieval
-    wget                                ; another URL retrieval tool
-    mg                                  ; lightweight emacs-style editor
-    tree                                ; directory listing
-    ripgrep                             ; fast grep alternative
-    fd                                  ; fast find alternative
-    
-    ;; Compression tools
-    zip
-    unzip
-    p7zip
-    
-    ;; Network tools
-    openssh            ; SSH client/server
-    ;; nss-certs              ; SSL certificates
-    ;; bind                   ; DNS utilities (dig, nslookup)
-    
-    ;; System monitoring and debugging
-    lsof                                ; list open files
-    pciutils                            ; lspci
-    usbutils                            ; lsusb
-    
-    ;; Shell utilities
-    fish                                ; friendly shell
-    )
-   %base-packages))
+		     wget text-editors rust-apps lsof pciutils gnome)
 
 (define voltaire-system
   (operating-system
@@ -105,7 +71,8 @@
 					  "lp")))
 		 %base-user-accounts))
 
-   (packages %my-base-packages)
+   (packages (append nerd-system-packages
+                     %base-packages))
 
 
    ;; System Services
@@ -149,7 +116,7 @@
       (service gnome-keyring-service-type)
 
       ;; User-level Shepherd Service
-      (service userherd-service-type)
+      ;; (service userherd-service-type)
       
       ;; Printing
       (service cups-service-type
