@@ -11,17 +11,19 @@ postsynchook = mu index
 [Repository proton-local]
 type = Maildir
 localfolders = ~/mail/
-sync_deletes = yes
+sync_deletes = no
 
 [Repository proton-remote]
 type = IMAP
 remoteport = 1143
 remotehost = 127.0.0.1
 remoteuser = ian@dapringles.com
-remotepass = kInNb8dsVfOFlPdLTCUYOA
+remotepass = GJkZ0os9SDcQzesSZpmYeA
 keepalive = 60
 holdconnectionopen = yes
 expunge = yes
 ssl = no
 starttls = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+#nametrans = lambda foldername: re.sub('^Folders.', '', foldername)
+folderfilter = lambda foldername: foldername not in ['All Mail']
