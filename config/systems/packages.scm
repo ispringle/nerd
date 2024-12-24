@@ -1,13 +1,17 @@
 (define-module (config systems packages)
+  #:use-module (config packages monaspace)
+  #:use-module (config packages monocraft)
+  #:use-module (config packages maple)
   #:use-module (gnu)
   #:use-module (gnu packages)
   #:use-module (gnu services)
+  #:use-module (nongnu packages fonts)
   #:export (nerd-system-packages))
 
 (use-package-modules admin audio video nfs certs shells ssh linux bash emacs gnome
                      networking wm fonts libusb cups freedesktop file-systems
                      version-control package-management compression base curl shellutils
-		     wget text-editors rust-apps lsof pciutils gnome)
+		     wget text-editors rust-apps lsof pciutils gnome fontutils)
 
 ;; make
 ;; go
@@ -25,6 +29,26 @@
    tree                                 ; directory listing
    ripgrep                              ; fast grep alternative
    fd                                   ; fast find alternative
+
+   ;; Fonts
+   fontconfig
+   font-google-roboto
+   font-google-noto-emoji
+   font-recursive
+   font-microsoft-cascadia
+   font-victor-mono
+   font-jetbrains-mono   
+   font-intel-one-mono
+   font-liberation
+   font-dejavu
+   font-microsoft-web-core-fonts
+   font-awesome
+   font-fira-code
+   font-google-noto
+   font-monaspace
+   font-monocraft
+   font-scientifica
+   font-maple
    
    ;; Compression tools
    zip

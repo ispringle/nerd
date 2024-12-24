@@ -131,6 +131,8 @@
                       (list
                        #~(job "5 0 * * *" ; Run at 00:05 every day
                               "guix gc -d 2m -F 10G")))
+
+      fontconfig-file-system-service
       
       ;; NonGuix substitutes
       (simple-service 'add-nonguix-substitutes
