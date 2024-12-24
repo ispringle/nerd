@@ -1,0 +1,37 @@
+* Nerd
+
+#+begin_quote
+nerd (ˈnərd) noun:
+- a person preoccupied with or devoted to a particular activity or field of interest 
+#+end_quote
+
+Nerd is the home of my Guix config and also dotfiles. It's called "nerd" for two
+reasons, first anyone who creates a repo for their dotfiles or uses Guix for
+their system is a nerd by definition. Second it's humorous because Guix is
+pronounced "geek".
+
+** Usage
+
+*** Guix
+
+Run a system reconfigure:
+#+begin_src shell
+sudo guix system -L ~/git/hub/ispringle/nerd reconfigure ~/git/hub/ispringle/nerd/config/systems/$(hostname).scm
+#+end_src
+
+Run a home reconfigure:
+#+begin_src shell
+RUNNING_GUIX_HOME=1 guix home -L ~/git/hub/ispringle/nerd reconfigure ~/git/hub/ispringle/nerd/config/home/base.scm
+#+end_src
+
+Once you've stow'd the ~home/~ directory you can also simply run ~update-system~
+and ~update-home~.
+
+*** Dotfiles
+
+From the root of this repo just run
+#+begin_src shell
+stow -t ~ home
+#+end_src
+
+
