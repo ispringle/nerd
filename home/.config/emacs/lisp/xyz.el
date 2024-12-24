@@ -1,6 +1,6 @@
 ;; Just random functions that don't have a better place to live right now.
 
-(defun strip-html ()
+(defun isp/strip-html ()
   "Remove HTML tags from the current buffer, 
    (this will affect the whole buffer regardless of the restrictions in effect)."
   (interactive "*")
@@ -19,3 +19,9 @@
       (goto-char (point-min))
       (replace-string "&gt;" ">")
       (goto-char (point-min)))))
+
+(defun isp/read-file-contents (file-path)
+  "Read the contents of FILE-PATH and return it as a string."
+  (with-temp-buffer
+    (insert-file-contents file-path)
+    (buffer-string)))
