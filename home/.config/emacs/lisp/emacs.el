@@ -96,5 +96,11 @@
              (set-face-attribute 'default nil :font "Maple Mono NF CN-12")
              (set-face-attribute 'font-lock-comment-face nil :slant 'italic)
 
+             ;; Disable `<>' pairs in orgmode
+             (add-hook 'org-mode-hook (lambda ()
+                                        (setq-local electric-pair-inhibit-predicate
+                                                    `(lambda (c)
+                                                       (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c))))))
+
              (keymap-set minibuffer-mode-map "TAB" 'minibuffer-complete))
 
