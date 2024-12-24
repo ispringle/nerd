@@ -1,0 +1,29 @@
+/* -*- mode: json -*- */
+{
+  "layer": "top",
+  "modules-left": ["sway/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["bluetooth", "network", "pulseaudio"],
+   
+  "clock": {
+    "format": "{:%H:%M}"
+  },
+  "network": {
+    "format-wifi": "\uf1eb {signalStrength}%",
+    "format-disconnected": "\uf00d",
+    "on-click": "nm-connection-editor"
+  },
+  "bluetooth": {
+    "format": "\uf293",
+    "format-disabled": "\uf5b1",
+    "on-click": "blueman-manager"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "\uf6a9 {volume}%",
+    "format-icons": {
+      "default": ["\uf026", "\uf027", "\uf028"]
+    },
+    "on-click": "pavucontrol"
+  }
+}

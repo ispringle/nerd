@@ -1,0 +1,81 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: 'FontAwesome, Maple Mono NF CN';
+    font-size: 9pt;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+window#waybar {
+    background: #f0f8f0;
+    color: #184034;
+}
+
+#workspaces button {
+    padding: 1px 3px;
+    background: #f0f8f0;
+    color: #63756e;
+}
+
+#workspaces button.focused {
+    background: #007f00;
+    color: #f0f8f0;
+}
+
+#workspaces button.urgent {
+    background: #c42d2f;
+    color: #f0f8f0;
+}
+
+#workspaces button:hover {
+    background: #3f7f7f;
+    color: #f0f8f0;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor {
+    padding: 1px 6px;
+    margin: 2px 2px;
+    color: #184034;
+    background: #e8f0e8;
+}
+
+#battery.charging {
+    background: #007f00;
+    color: #f0f8f0;
+}
+
+#battery.warning:not(.charging) {
+    background: #c42d2f;
+    color: #f0f8f0;
+}
+
+#network.disconnected {
+    background: #c42d2f;
+    color: #f0f8f0;
+}
+
+#temperature.critical {
+    background: #c42d2f;
+    color: #f0f8f0;
+}
+
+tooltip {
+    background: #f0f8f0;
+    border: 1px solid #007f00;
+}
+
+tooltip label {
+    color: #184034;
+}
