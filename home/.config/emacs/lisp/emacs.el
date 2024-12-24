@@ -37,6 +37,9 @@
              (line-number-mode t)
              (column-number-mode t)
 
+             ;; Killring stuff
+             (save-interprogram-paste-before-kill t)
+
              ;; pairing
              (electric-pair-pairs '((?\" . ?\")
                                     (?\{ . ?\})))
@@ -89,5 +92,9 @@
                    '(read-only t cursor-intangible t face minibuffer-prompt))
              (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
              :config
+             ;; Set font
+             (set-face-attribute 'default nil :font "Maple Mono NF CN-12")
+             (set-face-attribute 'font-lock-comment-face nil :slant 'italic)
+
              (keymap-set minibuffer-mode-map "TAB" 'minibuffer-complete))
 
