@@ -102,12 +102,20 @@
         "dbus-update-activation-environment --all"
         "~/.bin/proton-bridge -n"
         "offlineimap"))
+
 (define nerd-extra-content
   `("corner_radius 2"
     "smart_borders on"
-    "default_border pixel 1"
+    "default_border pixel 3"
     "gaps inner 5"
-    "blur enable"))
+    "blur enable"
+
+    ;; Theme
+    "client.focused          #5fa824     #5fa824     #fafafa     #4d8f21     #5fa824"
+    "client.focused_inactive #2f4440     #2f4440     #b3b3b3     #2f4440     #2f4440"
+    "client.unfocused        #1a1f1f     #1a1f1f     #8f8f8f     #1a1f1f     #1a1f1f"
+    "client.urgent           #c42d2f     #c42d2f     #fafafa     #c42d2f     #c42d2f"
+    "client.placeholder      #1a1f1f     #1a1f1f     #8f8f8f     #1a1f1f     #1a1f1f"))
 
 (define nerd-sway-config
   (sway-configuration
