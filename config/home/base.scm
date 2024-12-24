@@ -7,6 +7,7 @@
   #:use-module (gnu home services)
   #:use-module (gnu home services shells)
   #:use-module (gnu home services sway)
+  #:use-module (gnu home services fontutils)
   #:use-module (gnu packages)
   #:use-module (gnu services)
   #:export (home-config))
@@ -17,6 +18,13 @@
    
    (services
     (list
+     (simple-service 'additional-fonts-service
+                home-fontconfig-service-type
+                (list '(alias
+                        (family "monospace")
+                        (prefer
+                         (family "Maple Mono NF CN")
+                         (family "FontAwesome")))))
      (service home-sway-service-type
               nerd-sway-config)
      (service home-bash-service-type
