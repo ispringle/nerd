@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+
+# Function to get the current timestamp
+get_timestamp() {
+    date '+%Y%m%d_%H%M%S'
+}
+
+# Function to get active window geometry using swaymsg
+get_active_window_geometry() {
+    swaymsg -t get_tree | jq -r '.. | select(.focused?) | "\(.rect.x),\(.rect.y) \(.rect.width)x\(.rect.height)"'
+}
+
+# Function to handle screenshot saving
+save_screenshot() {
+    local screenshot_path="$HOME/Pictures/Screenshots/$(get_timestamp).png"
+    mkdir -p "$HOME/Pictures/Screenshots"
+    cat > "$screenshot_path"
+    fyi -a screenshot "Screenshot saved" "$screenshot_path"
+    wl-copy < "$screenshot_path"
+}
+
+# Generate type menu options
+type_options="Full screen
+Active window
+Selected area"
+
+# Show type menu and get selection
+selected_type=$(echo "$type_options" | fuzzel --dmenu --width 30 --lines 3 --prompt "Screenshot type: ")
+
+# Exit if no type selected
+[ -z "$selected_type" ] && exit 1
+
+# Generate action menu options (copy first as default)
+action_options="Copy to clipboard
+Save to file
+Save and copy"
+
+# Show action menu and get selection
+selected_action=$(echo "$action_options" | fuzzel --dmenu --width 30 --lines 3 --prompt "Action: ")
+
+# Take screenshot based on type and handle the action
+case "$selected_type" in
+    "Full screen")
+        screenshot_cmd="grim -"
+        ;;
+    "Active window")
+        geometry=$(get_active_window_geometry)
+        screenshot_cmd="grim -g \"$geometry\" -"
+        ;;
+    "Selected area")
+        geometry=$(slurp)
+        [ -z "$geometry" ] && exit 1
+        screenshot_cmd="grim -g \"$geometry\" -"
+        ;;
+    *)
+        fyi -a screenshot "Screenshot cancelled" "No type selected"
+        exit 1
+        ;;
+esac
+
+case "$selected_action" in
+    "Copy to clipboard")
+        eval "$screenshot_cmd" | wl-copy
+        notify-send "Screenshot copied" "Screenshot copied to clipboard"
+        ;;
+    "Save to file")
+        eval "$screenshot_cmd" | save_screenshot
+        ;;
+    "Save and copy")
+        eval "$screenshot_cmd" | tee >(wl-copy) | save_screenshot
+        ;;
+    *)
+        fyi -a screenshot "Screenshot cancelled" "No action selected"
+        exit 1
+        ;;
+esac
