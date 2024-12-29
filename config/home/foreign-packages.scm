@@ -8,13 +8,15 @@
                      gstreamer kde-frameworks linux music package-management
                      password-utils pdf pulseaudio shellutils ssh syncthing terminals
                      video web-browsers wget wm xdisorg xorg emacs emacs-xyz librewolf
-                     chromium image qt mail rust-apps gnupg w3m)
+                     chromium image qt mail rust-apps gnupg w3m web)
 (define nerd-pkgs
     (list
-     ;; WM related stuff
-     flameshot
+     ;; Wayland/WM related utils
+     grim
+     slurp
      wl-clipboard
      mako
+     fyi
      foot
      gammastep
      waybar
@@ -35,11 +37,8 @@
      emacs-next-pgtk
 
      ;; email
-     ;; proton-bridge
-     ;; hydroxide                    ; third party, cli-only protonbridge basically
      mu
      offlineimap3
-     ;; isync
      
      ;; Device Management
      udiskie
@@ -55,7 +54,6 @@
      ;; Browsers
      nyxt
      librewolf
-     ;; ungoogled-chromium-wayland
      
      ;; Audio/Video
      mpv
@@ -77,4 +75,7 @@
      pinentry
      
      ;; Shell tools
-     w3m))
+     w3m
+     jq
+     yq
+     htmlq))

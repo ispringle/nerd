@@ -21,7 +21,7 @@
     ("PATH" . "$HOME/.bin:$HOME/.local/bin:$PATH")
 
     ;; Wayland / Sway
-    ("XDG_CURRENT_DESKTIOP" . "sway")
+    ("XDG_CURRENT_DESKTOP" . "sway")
     ("XDG_SESSION_TYPE" . "wayland")
     ("XDG_SESSION_DESKTOP" . "sway")
     ("_JAVA_AWT_WM_NONREPARENTING" . "1")

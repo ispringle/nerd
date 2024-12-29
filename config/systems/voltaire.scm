@@ -70,7 +70,15 @@
 					  "libvirt"
 					  "lp")))
 		 %base-user-accounts))
-
+   (sudoers-file 
+    (plain-file "sudoers"
+                "Defaults timestamp_timeout=480
+root ALL=(ALL) ALL
+%wheel ALL=(ALL) ALL
+ian ALL=(ALL) NOPASSWD: /run/current-system/profile/bin/loginctl
+ian ALL=(ALL) NOPASSWD: /run/current-system/profile/sbin/reboot
+ian ALL=(ALL) NOPASSWD: /run/current-system/profile/sbin/shutdown\n"))
+   
    (packages (append nerd-system-packages
                      %base-packages))
 

@@ -27,7 +27,7 @@
     ($mod+i . "exec nyxt")
     ($mod+Shift+i . "exec librewolf")
     ($mod+e . "exec emacsclient -nc")
-    ($mod+s . "exec flameshot gui -p ~/Screenshots")
+    ($mod+s . "exec ghettoshot")
 
     ;; Window manipulation
     ($mod+$left . "focus left")
