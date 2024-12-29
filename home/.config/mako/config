@@ -1,0 +1,61 @@
+# Base colors from ef-cypress theme
+background-color=#142f30
+text-color=#a8b4b6
+border-color=#34656c
+progress-color=over #34656c
+
+# Font configuration
+font=monospace 11
+markup=1
+actions=1
+icons=1
+
+# Layout and positioning
+width=350
+height=200
+margin=10
+padding=15
+border-size=2
+border-radius=3
+
+# Text formatting
+format=<b>%s</b>\n%b
+
+# Behavior
+default-timeout=5000
+ignore-timeout=0
+max-visible=5
+layer=overlay
+
+# Grouping settings
+max-history=20
+group-by=app-name,summary
+
+# Style by urgency
+[urgency=low]
+border-color=#34656c
+default-timeout=3000
+
+[urgency=normal]
+border-color=#34656c
+default-timeout=5000
+
+[urgency=critical]
+border-color=#cf433e
+text-color=#cf433e
+default-timeout=0
+
+# Special app-specific styling
+[app-name=volume]
+border-color=#34656c
+default-timeout=1500
+
+[app-name=brightness]
+border-color=#34656c
+default-timeout=1500
+
+[app-name=screenshot]
+border-color=#34656c
+format=<b>%s</b>\n%b
+text-color=#a8b4b6
+default-timeout=3000
