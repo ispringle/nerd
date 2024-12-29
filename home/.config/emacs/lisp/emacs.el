@@ -69,6 +69,7 @@
              ;; Highlight the current line
              (let ((hl-line-hooks '(text-mode-hook prog-mode-hook)))
                (mapc (lambda (hook) (add-hook hook 'hl-line-mode)) hl-line-hooks))
+             (setq hl-line-sticky-flag nil)
              (set-default 'indent-tabs-mode nil)
              
              ;; Tabbar
@@ -91,6 +92,9 @@
              (setq minibuffer-prompt-properties
                    '(read-only t cursor-intangible t face minibuffer-prompt))
              (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
+
+             ;; Set hook to toggle active window color
+             (add-hook 'window-state-change-hook 'isp/active-window-accent)
              :config
              ;; Set font
              (set-face-attribute 'default nil :font "Maple Mono NF CN-12")
@@ -101,6 +105,6 @@
                                         (setq-local electric-pair-inhibit-predicate
                                                     `(lambda (c)
                                                        (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c))))))
-
+             
              (keymap-set minibuffer-mode-map "TAB" 'minibuffer-complete))
 
