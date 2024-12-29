@@ -29,4 +29,3 @@
 I create it to enhance my working experience, and hope that it can be useful to others.
 V7 is a completely remade version, providing variable font, redesigning more than half of the glyphs and offering smarter ligatures. ")
    (license license:silofl1.1)))
-s
