@@ -1,12 +1,13 @@
 /* -*- mode: json -*- */
 {
   "layer": "top",
-  "modules-left": ["sway/workspaces"],
+  "modules-left": ["sway/workspaces", "sway/window"],
   "modules-center": ["clock"],
   "modules-right": ["bluetooth", "network", "pulseaudio"],
    
   "clock": {
-    "format": "{:%H:%M}"
+    "format": "{:%H:%M}",
+    "tooltip-format": "{:%A, %B %d, %Y}"
   },
   "network": {
     "format-wifi": "\uf1eb {signalStrength}%",
@@ -25,5 +26,12 @@
       "default": ["\uf026", "\uf027", "\uf028"]
     },
     "on-click": "pavucontrol"
+  },
+  {
+  "sway/window": {
+    "max-length": 50,
+    "tooltip": false,
+    "format": "> {}"
   }
+}
 }
