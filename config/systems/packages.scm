@@ -56,7 +56,6 @@
    sbcl
    python
    go
-   guile
    node
    
    ;; Compression tools
@@ -78,3 +77,4 @@
    ;; Shells
    fish                                 ; friendly shell
    ))
+
