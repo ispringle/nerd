@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+swaymsg -t get_workspaces | \
+   jq -r '.[] | select(.focused==false) | "\(.num) - \(.representation)"' | \
+   fuzzel --dmenu | \
+   cut -d'-' -f1 | \
+   xargs -I{} swaymsg workspace {}

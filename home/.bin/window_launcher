@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+swaymsg -t get_tree | \
+    jq -r '.. | select(.type?) | select(.type=="con") | select(.name?!="") | select(.name!=null) | "\(.id):\(.name)"' | \
+    fuzzel --dmenu | \
+    cut -d':' -f1 | \
+    xargs -I{} swaymsg '[con_id="{}"] focus'

@@ -17,7 +17,7 @@
 		         (menu . "fuzzel")))
 
 (define nerd-keybindings
-  `(;; Sway Shortcuts
+  `( ;; Sway Shortcuts
     ($mod+Shift+q . "kill")
     ($mod+Shift+r . "reload")
     ($mod+d . "exec $menu")
@@ -61,7 +61,20 @@
     ($mod+Shift+7 . "move container to workspace number 7")
     ($mod+Shift+8 . "move container to workspace number 8")
     ($mod+Shift+9 . "move container to workspace number 9")
-    ($mod+Shift+0 . "move container to workspace number 10")))
+    ($mod+Shift+0 . "move container to workspace number 10")
+
+    ;; Volume
+    ($mod+equal . "exec pactl set-sink-volume @DEFAULT_SINK@ +5%")           ; Up
+    (XF86AudioRaiseVolume . "exec pactl set-sink-volume @DEFAULT_SINK@ +5%") ; Up
+    ($mod+minus . "exec pactl set-sink-volume @DEFAULT_SINK@ -5%")        ; Down
+    (XF86AudioLowerVolume . "exec pactl set-sink-volume @DEFAULT_SINK@ -5%") ; Down
+    ($mod+m . "exec pactl set-sink-mute @DEFAULT_SINK@ toggle")     ; Mute
+    (XF86AudioMute . "exec pactl set-sink-mute @DEFAULT_SINK@ toggle") ; Mute
+
+    ;; Bar replacement
+    ($mod+Backspace . "exec ~/.bin/workspace_launcher")
+    ($mod+Tab . "exec ~/.bin/window_launcher")
+    ($mod+Shift+T . "exec ~/.bin/time_notify")))
 
 (define nerd-gestures (list))
 
@@ -96,7 +109,6 @@
 
 (define nerd-startup-progs
   (list "emacs --daemon"
-        "waybar"
         "foot -s"
         "mako"
         "dbus-update-activation-environment --all"
@@ -115,7 +127,11 @@
     "client.focused_inactive #2f4440     #2f4440     #b3b3b3     #2f4440     #2f4440"
     "client.unfocused        #1a1f1f     #1a1f1f     #8f8f8f     #1a1f1f     #1a1f1f"
     "client.urgent           #c42d2f     #c42d2f     #fafafa     #c42d2f     #c42d2f"
-    "client.placeholder      #1a1f1f     #1a1f1f     #8f8f8f     #1a1f1f     #1a1f1f"))
+    "client.placeholder      #1a1f1f     #1a1f1f     #8f8f8f     #1a1f1f     #1a1f1f"
+
+    ;; Time notify
+    "bindcode 133+134 exec ~/.bin/time_notify" ; Tap both super keys
+    ))
 
 (define nerd-sway-config
   (sway-configuration
