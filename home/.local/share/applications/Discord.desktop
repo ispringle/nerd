@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Discord
+Exec=/gnu/store/36zym3ppx55r87xf5ilacwcjasap251v-ungoogled-chromium-112.0.5615.165-1/lib/chromium --profile-directory=Default --app-id=magkoliahgffibhgfkmoealggombgknl
+Icon=chrome-magkoliahgffibhgfkmoealggombgknl-Default
+StartupWMClass=crx_magkoliahgffibhgfkmoealggombgknl

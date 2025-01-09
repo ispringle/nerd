@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+LOG=~/.local/log/mpv-queue
+SOCKET=/tmp/mpvsocket
+
+echo "New mpv-queue request!" >> $LOG
+echo "Arguments: " $@ >> $LOG
+
+if [[ "$1" == mpv://* ]]; then
+    url=$(echo "$1" |\
+              sed -E 's/.*url=([^&]+).*/\1/' |\
+              sed 's/%3A/:/g; s/%2F/\//g; s/%3F/?/g; s/%3D/=/g')
+else
+    url="$1"
+fi
+
+echo "url: " $url >> $LOG
+
+echo "Checking ${SOCKET} to see if mpv instance is running already..." >> $LOG
+if ! socat - $SOCKET <<< '{"command": ["get_version"]}' >> $LOG;
+then
+    echo "No mpv instance detected. Starting new instance..." >> $LOG
+    nohup mpv \
+          --input-ipc-server=$SOCKET \
+          --idle=yes \
+          --force-window=yes \
+          >/dev/null 2>&1 &
+    sleep 1
+    echo "New mpv instance started!" >> $LOG
+fi
+
+[ -n "$url" ] &&\
+    echo "Appending URL to mpv queue:" >> $LOG &&\
+    printf "%s\n" "{\"command\": [\"loadfile\", \"$url\", \"append\"]}" |\
+        socat - $SOCKET >> $LOG ||\
+    echo "Usage: $0 <url or mpv:// URI>"
