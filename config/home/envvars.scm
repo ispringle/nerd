@@ -15,6 +15,9 @@
 
     ;; Guix
     ("GUIX_PROFILE" . "$HOME/.guix-profile")
+
+    ;; Guile
+    ("GUILE_LOAD_PATH" . "$GUIX_PROFILE/share/guile/site/3.0:$GUILE_LOAD_PATH")
     
     ;; Bin locs
     ("XDG_DATA_DIRS" . "$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:/usr/local/share:/usr/share")
