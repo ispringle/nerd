@@ -11,7 +11,8 @@
 (use-package-modules admin audio video nfs certs shells ssh linux bash emacs gnome
                      networking wm fonts libusb cups freedesktop file-systems
                      version-control package-management compression base curl shellutils
-		     wget text-editors rust-apps lsof pciutils gnome fontutils)
+		     wget text-editors rust-apps lsof pciutils gnome fontutils
+                     commencement lisp python golang guile node)
 
 ;; make
 ;; go
@@ -49,6 +50,14 @@
    font-monocraft
    font-scientifica
    font-maple
+
+   ;; Mandatory Program Languages
+   gcc-toolchain
+   sbcl
+   python
+   go
+   guile
+   node
    
    ;; Compression tools
    zip
@@ -56,7 +65,8 @@
    p7zip
    
    ;; Network tools
-   openssh             ; SSH client/server
+   openssh                              ; SSH client/server
+   socat
    ;; nss-certs              ; SSL certificates
    ;; bind                   ; DNS utilities (dig, nslookup)
    
@@ -65,6 +75,6 @@
    pciutils                             ; lspci
    usbutils                             ; lsusb
    
-   ;; Shell utilities
+   ;; Shells
    fish                                 ; friendly shell
    ))
