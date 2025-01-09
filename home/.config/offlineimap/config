@@ -1,5 +1,6 @@
 [general]
 accounts = proton
+logfile = ~/.local/log/offlineimap.log
 
 [Account proton]
 localrepository = proton-local
