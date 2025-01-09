@@ -94,7 +94,7 @@
              (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
 
              ;; Set hook to toggle active window color
-             (add-hook 'window-state-change-hook 'isp/active-window-accent)
+             ;; (add-hook 'window-state-change-hook 'isp/active-window-accent)
              :config
              ;; Set font
              (set-face-attribute 'default nil :font "Maple Mono NF CN-12")

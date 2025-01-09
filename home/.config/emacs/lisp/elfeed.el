@@ -42,7 +42,12 @@
   ("C-x w" . elfeed)
   :custom
   (elfeed-feeds '(;; Podcasts
-                  ("https://profcj.org/feed/podcast/" dangerous-history longform history chrono)
+                  (;; "https://profcj.org/feed/podcast/"
+                   "https://www.patreon.com/rss/profcj?auth=gPiCrSPc9kvvclcDJdn3DOHUhOVwb4ex"
+                   dangerous-history
+                   longform
+                   history
+                   chrono)
                   ("https://tomwoodsshow.libsyn.com/rss" periodical politics)
                   ("https://www.dhunplugged.com/feed/" periodical finance)
                   ("https://feeds.megaphone.fm/GLT1412515089" periodical talk)
@@ -88,6 +93,22 @@
       (format "%s.%s"
               (isp/elfeed-slugify (format "%s-%s-%s" date feed title))
               ext)))
+
+  ;; (defun isp/elfeed-db-remove-entry (id)
+  ;;   "Removes the entry for ID"
+  ;;   (avl-tree-delete elfeed-db-index id)
+  ;;   (remhash id elfeed-db-entries))
+
+  ;; (defun isp/elfeed-search-remove-selected ()
+  ;;   "Remove selected entries from database"
+  ;;   (interactive)
+  ;;   (let* ((entries (elfeed-search-selected))
+  ;;          (count (length entries)))
+  ;;     (when (y-or-n-p (format "Delete %d entires?" count))      
+  ;;       (cl-loop for entry in entries
+  ;;                do (sk/elfeed-db-remove-entry (elfeed-entry-id entry)))))
+  ;;   (elfeed-search-update--force))
+  
   (defvar elfeed-default-enclosure-directory "~/Podcasts/")
   (defun elfeed--request-enclosure-path (fname _path)
     "Ask the user where to save FNAME (default is PATH/FNAME)."
