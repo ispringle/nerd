@@ -21,12 +21,14 @@
     ($mod+Shift+q . "kill")
     ($mod+Shift+r . "reload")
     ($mod+d . "exec $menu")
+    ($mod+Shift+Escape . "exec system-menu")
 
     ;; Program shortcuts
     ($mod+Return . "exec $term")
     ($mod+i . "exec nyxt")
     ($mod+Shift+i . "exec librewolf")
     ($mod+e . "exec emacsclient -nc")
+    ($mod+Shift+e . "exec emacsclient --eval \"(emacs-everywhere)\"")
     ($mod+s . "exec ghettoshot")
 
     ;; Window manipulation
@@ -64,11 +66,11 @@
     ($mod+Shift+0 . "move container to workspace number 10")
 
     ;; Volume
-    ($mod+equal . "exec pactl set-sink-volume @DEFAULT_SINK@ +5%")           ; Up
+    ($mod+equal . "exec pactl set-sink-volume @DEFAULT_SINK@ +5%") ; Up
     (XF86AudioRaiseVolume . "exec pactl set-sink-volume @DEFAULT_SINK@ +5%") ; Up
-    ($mod+minus . "exec pactl set-sink-volume @DEFAULT_SINK@ -5%")        ; Down
+    ($mod+minus . "exec pactl set-sink-volume @DEFAULT_SINK@ -5%") ; Down
     (XF86AudioLowerVolume . "exec pactl set-sink-volume @DEFAULT_SINK@ -5%") ; Down
-    ($mod+m . "exec pactl set-sink-mute @DEFAULT_SINK@ toggle")     ; Mute
+    ($mod+m . "exec pactl set-sink-mute @DEFAULT_SINK@ toggle")        ; Mute
     (XF86AudioMute . "exec pactl set-sink-mute @DEFAULT_SINK@ toggle") ; Mute
 
     ;; Bar replacement

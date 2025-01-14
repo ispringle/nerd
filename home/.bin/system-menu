@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+exit="Exit Sway"
+logout="Logout"
+reboot="Reboot"
+shutdown="Shutdown"
+option=$(printf "%s\n%s\n%s\n%s" \
+                "$exit" \
+                "$logout" \
+                "$reboot" \
+                "$shutdown" |\
+             fuzzel --dmenu --lines=4)
+
+case $option in
+    "$exit")
+        swaymsg exit
+        ;;
+    "$logout")
+        loginctl terminate-user $USER
+        ;;
+    "$reboot")
+        loginctl reboot
+        ;;
+    "$shutdown")
+        loginctl poweroff
+        ;;
+esac
