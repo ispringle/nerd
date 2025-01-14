@@ -2,7 +2,7 @@
   #:use-module (gnu)
   #:use-module (gnu packages)
   #:use-module (gnu packages chromium)
-  ;; #:use-module (config packages proton-bridge)
+  #:use-module (config packages vend)
   #:export (nerd-pkgs))
 (use-package-modules compression curl fonts freedesktop gimp glib gnome gnome-xyz
                      gstreamer kde-frameworks linux music package-management
@@ -73,6 +73,9 @@
      rbw
      password-store
      pinentry
+
+     ;; Common Lisp
+     vend
      
      ;; Shell tools
      w3m
