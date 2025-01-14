@@ -1,0 +1,5 @@
+if [ -n "$DISPLAY" ] || [ -n "$WAYLAND_DISPLAY" ]; then
+    exec emacsclient -c -a '' "$@"
+else
+    exec emacsclient -c -nw -a '' "$@"
+fi

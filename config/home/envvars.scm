@@ -2,8 +2,8 @@
   #:export (nerd-env-vars))
 
 (define nerd-env-vars
-  `(("EDITOR" . "emacsclient")
-    ("VISUAL" . "emacsclient")
+  `(("EDITOR" . "editor")
+    ("VISUAL" . "editor")
     ("ALTERNATE_EDITOR" . "mg")
     
     ;; Fix for Nyxt, otherwise it crashes
