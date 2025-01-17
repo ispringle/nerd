@@ -19,14 +19,19 @@
    (services
     (list
      (simple-service 'additional-fonts-service
-                home-fontconfig-service-type
-                (list '(alias
-                        (family "monospace")
-                        (prefer
-                         (family "Maple Mono NF CN")
-                         (family "FontAwesome")))))
+                     home-fontconfig-service-type
+                     (list '(alias
+                             (family "monospace")
+                             (prefer
+                              (family "Maple Mono NF CN")
+                              (family "FontAwesome")))))
      (service home-sway-service-type
               nerd-sway-config)
+     (simple-service 'source-guix-profile home-shell-profile-service-type
+                     (list (plain-file "guix-env-src"
+                                       (string-append
+                                        "GUIX_PROFILE=\"$HOME/.guix-profile\"\n"
+                                        ". $GUIX_PROFILE/etc/profile"))))
      (service home-bash-service-type
               (home-bash-configuration
                (guix-defaults? #t)
