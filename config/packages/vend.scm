@@ -1,12 +1,13 @@
-(define-module (gnu packages vend)
+(define-module (config packages vend)
   #:use-module (guix packages)
   #:use-module (guix download)
   #:use-module (guix build-system gnu)
   #:use-module (guix licenses)
   #:use-module (gnu packages lisp)
-  #:use-module (gnu packages lisp-xyz))
+  #:use-module (gnu packages lisp-xyz)
+  #:export (vend))
 
-(define-public vend
+(define vend
   (package
    (name "vend")
    (version "0.1.0")

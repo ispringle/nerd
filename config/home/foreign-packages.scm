@@ -4,11 +4,12 @@
   #:use-module (gnu packages chromium)
   #:use-module (config packages vend)
   #:export (nerd-pkgs))
+
 (use-package-modules compression curl fonts freedesktop gimp glib gnome gnome-xyz
                      gstreamer kde-frameworks linux music package-management
                      password-utils pdf pulseaudio shellutils ssh syncthing terminals
                      video web-browsers wget wm xdisorg xorg emacs emacs-xyz librewolf
-                     chromium image qt mail rust-apps gnupg w3m web)
+                     chromium image qt mail rust-apps gnupg w3m web admin xdisorg)
 (define nerd-pkgs
     (list
      ;; Wayland/WM related utils
@@ -19,10 +20,15 @@
      fyi
      foot
      gammastep
-     waybar
      fuzzel
      xorg-server-xwayland
+     wtype
+     
+     ;; QT
      qtwayland
+     qt5ct
+     qtsvg
+     qt6ct
      
      ;; XDG and Desktop Integration
      xdg-desktop-portal
@@ -54,11 +60,12 @@
      ;; Browsers
      nyxt
      librewolf
+     ungoogled-chromium/wayland
      
      ;; Audio/Video
      mpv
      mpv-mpris
-     youtube-dl
+     yt-dlp
      playerctl
      gstreamer
      gst-plugins-base
@@ -73,6 +80,8 @@
      rbw
      password-store
      pinentry
+     gnome-keyring
+     libsecret
 
      ;; Common Lisp
      vend
@@ -81,4 +90,7 @@
      w3m
      jq
      yq
-     htmlq))
+     htmlq
+     tree
+     fastfetch
+     fyi))

@@ -2,6 +2,7 @@
   #:use-module (gnu home services sway)
   #:use-module (gnu packages wm)
   #:use-module (gnu packages rust-apps)
+  #:use-module (gnu packages guile-xyz)
   #:export (nerd-sway-config))
 
 (define wallpaper
@@ -84,7 +85,7 @@
                             swaybg
                             swaylock
                             swayidle
-                            swayr       ; TODO: set this up
+                            guile-swayer
                             ))
 
 (define nerd-inputs (list))

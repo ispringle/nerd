@@ -6,23 +6,23 @@
   #:use-module (gnu packages)
   #:use-module (gnu services)
   #:use-module (nongnu packages fonts)
+  #:use-module (nongnu packages linux)
   #:export (nerd-system-packages))
 
 (use-package-modules admin audio video nfs certs shells ssh linux bash emacs gnome
                      networking wm fonts libusb cups freedesktop file-systems
                      version-control package-management compression base curl shellutils
 		     wget text-editors rust-apps lsof pciutils gnome fontutils
-                     commencement lisp python golang guile node)
+                     commencement lisp python golang guile node rust tls
+                     ninja ncurses)
 
-;; make
-;; go
-;; ninja
 (define nerd-system-packages
   (list
    ;; System utilities
    stow
    git
    bluez
+   blueman
    htop                                 ; system monitoring
    curl                                 ; URL retrieval
    wget                                 ; another URL retrieval tool
@@ -31,6 +31,9 @@
    ripgrep                              ; fast grep alternative
    fd                                   ; fast find alternative
 
+   ;; Audio/Video
+   sof-firmware
+   
    ;; Fonts
    fontconfig
    font-google-roboto
@@ -57,6 +60,12 @@
    python
    go
    node
+   rust
+
+   ;; Build utils
+   gnu-make
+   ninja
+   ncurses
    
    ;; Compression tools
    zip
@@ -65,6 +74,7 @@
    
    ;; Network tools
    openssh                              ; SSH client/server
+   openssl
    socat
    ;; nss-certs              ; SSL certificates
    ;; bind                   ; DNS utilities (dig, nslookup)
