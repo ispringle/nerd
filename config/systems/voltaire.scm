@@ -6,6 +6,7 @@
   #:use-module (gnu system)
   #:use-module (gnu system nss)
   #:use-module (gnu system privilege)
+  #:use-module (gnu system shadow)
   #:use-module (guix channels)
   #:use-module (nongnu packages linux)
   #:use-module (nongnu system linux-initrd)
@@ -17,7 +18,7 @@
 (use-package-modules admin audio video nfs certs shells ssh linux bash emacs gnome
                      networking wm fonts libusb cups freedesktop file-systems
                      version-control package-management compression base curl shellutils
-		     wget text-editors rust-apps lsof pciutils gnome)
+		     wget text-editors rust-apps lsof pciutils gnome android)
 
 (define voltaire-system
   (operating-system
@@ -68,7 +69,8 @@
 					  "input"
 					  "docker"
 					  "libvirt"
-					  "lp")))
+					  "lp"
+                                          "adbusers")))
 		 %base-user-accounts))
    (sudoers-file 
     (plain-file "sudoers"
@@ -141,6 +143,10 @@ ian ALL=(ALL) NOPASSWD: /run/current-system/profile/sbin/shutdown\n"))
                               "guix gc -d 2m -F 10G")))
 
       fontconfig-file-system-service
+
+      ;; adb
+      (udev-rules-service 'android android-udev-rules
+                          #:groups '("adbusers"))
       
       ;; NonGuix substitutes
       (simple-service 'add-nonguix-substitutes

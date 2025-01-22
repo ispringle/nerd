@@ -14,7 +14,7 @@
                      version-control package-management compression base curl shellutils
 		     wget text-editors rust-apps lsof pciutils gnome fontutils
                      commencement lisp python golang guile node rust tls
-                     ninja ncurses)
+                     ninja ncurses android)
 
 (define nerd-system-packages
   (list
@@ -83,6 +83,9 @@
    lsof                                 ; list open files
    pciutils                             ; lspci
    usbutils                             ; lsusb
+
+   ;; Dev/Debug tools
+   adb
    
    ;; Shells
    fish                                 ; friendly shell
