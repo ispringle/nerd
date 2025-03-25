@@ -3,10 +3,11 @@
   #:use-module (gnu packages)
   #:use-module (gnu packages chromium)
   #:use-module (config packages vend)
+  #:use-module (nongnu packages messaging)
   #:export (nerd-pkgs))
 
 (use-package-modules compression curl fonts freedesktop gimp glib gnome gnome-xyz
-                     gstreamer kde-frameworks linux music package-management
+                     gstreamer kde-frameworks linux music package-management ebook
                      password-utils pdf pulseaudio shellutils ssh syncthing terminals
                      video web-browsers wget wm xdisorg xorg emacs emacs-xyz librewolf
                      chromium image qt mail rust-apps gnupg w3m web admin xdisorg)
@@ -42,9 +43,10 @@
      ;; Emacs
      emacs-next-pgtk
 
-     ;; email
+     ;; messaging
      mu
      offlineimap3
+     signal-desktop
      
      ;; Device Management
      udiskie
@@ -85,6 +87,9 @@
 
      ;; Common Lisp
      vend
+
+     ;; Misc
+     calibre
      
      ;; Shell tools
      w3m

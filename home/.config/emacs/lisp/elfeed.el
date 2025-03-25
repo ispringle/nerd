@@ -120,7 +120,11 @@
         fpath)))
   (setq elfeed-show-enclosure-filename-function #'isp/elfeed-show-enclosure-filename-remote)
   (setq-default elfeed-search-filter "@1-week-ago -longform +unread ")
-  (add-hook 'elfeed-new-entry-hook #'isp/elfeed-postcast-tagger))
+  (add-hook 'elfeed-new-entry-hook #'isp/elfeed-postcast-tagger)
+  (add-hook 'elfeed-new-entry-hook
+            (elfeed-make-tagger :before "28 days ago"
+                                :remove 'unread)))
+
 
 (use-package elfeed-tube
   :ensure t

@@ -14,7 +14,7 @@
                      version-control package-management compression base curl shellutils
 		     wget text-editors rust-apps lsof pciutils gnome fontutils
                      commencement lisp python golang guile node rust tls
-                     ninja ncurses android)
+                     ninja ncurses android libusb)
 
 (define nerd-system-packages
   (list
@@ -30,6 +30,9 @@
    tree                                 ; directory listing
    ripgrep                              ; fast grep alternative
    fd                                   ; fast find alternative
+   libmtp
+   gvfs
+   dropbear
 
    ;; Audio/Video
    sof-firmware
